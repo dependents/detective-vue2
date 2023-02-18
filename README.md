@@ -3,14 +3,14 @@
 Supports Vue2 and Vue3
 
 ```sh
-npm install detective-vue
+npm install detective-vue2
 ```
 
 ### Usage
 
 ```js
 const fs = require('fs');
-const detective = require('detective-vue');
+const detective = require('detective-vue2');
 
 const mySourceCode = fs.readFileSync('myfile.vue', 'utf8');
 

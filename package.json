@@ -1,5 +1,5 @@
 {
-  "name": "detective-vue",
+  "name": "detective-vue2",
   "version": "1.0.0",
   "author": "Havunen <sampo.kivisto@live.fi>",
   "description": "Get the dependencies of a Vue module",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/havunen/detective-vue.git"
+    "url": "git+https://github.com/havunen/detective-vue2.git"
   },
   "keywords": [
     "detective",

@@ -5,7 +5,7 @@
 const assert = require('assert').strict;
 const detective = require('../index.js');
 
-describe('detective-vue', () => {
+describe('detective-vue2', () => {
   it('retrieves the dependencies of script block lang ts', () => {
     const deps = detective('<template></template> <script lang="ts">import {foo, bar} from "mylib"; </script>');
     assert.equal(deps.length, 1);
