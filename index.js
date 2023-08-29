@@ -7,8 +7,6 @@ const detectiveScss = require('detective-scss')
 const detectiveStylus = require('detective-stylus')
 const detectiveSass = require('detective-sass')
 
-const isVue3 = typeof compiler.parseComponent === 'undefined';
-
 /**
  * Extracts the dependencies of the supplied Vue module
  */
@@ -16,17 +14,9 @@ module.exports = function vueDetective(fileContent, opts) {
   if (typeof fileContent === 'undefined') throw new Error('content not given');
   if (typeof fileContent !== 'string') throw new Error('content is not a string');
 
-  let script, styles;
-
-  if (isVue3) {
-    const result = compiler.parse(fileContent, {sourceMap: false})
-    styles = result.descriptor.styles;
-    script = result.descriptor.script;
-  } else {
-    const result = compiler.parse({source: fileContent, sourceMap: false})
-    styles = result.styles;
-    script = result.script;
-  }
+  const result = compiler.parse(fileContent, {sourceMap: false})
+  const styles = result.descriptor.styles;
+  const script = result.descriptor.script;
 
   const dependencies = [];
 

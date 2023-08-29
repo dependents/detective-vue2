@@ -1,6 +1,6 @@
 {
   "name": "detective-vue2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Havunen <sampo.kivisto@live.fi>",
   "description": "Get the dependencies of a Vue module",
   "main": "index.js",
@@ -30,19 +30,16 @@
   },
   "license": "MIT",
   "homepage": "https://github.com/dependents/detective-typescript",
-  "peerDependencies": {
-    "@vue/compiler-sfc": ">= 2 < 4"
-  },
   "dependencies": {
-    "detective-es6": "^4.0.1",
-    "detective-sass": "^5.0.3",
-    "detective-scss": "^4.0.3",
-    "detective-stylus": "^4.0.0",
-    "detective-typescript": "^11.1.0"
+    "@vue/compiler-sfc": ">=3",
+    "detective-es6": ">=4",
+    "detective-sass": ">=5",
+    "detective-scss": ">=4",
+    "detective-stylus": ">=4",
+    "detective-typescript": ">=11"
   },
   "devDependencies": {
     "eslint": "^8.48.0",
-    "mocha": "^10.2.0",
-    "@vue/compiler-sfc": "^3.3.4"
+    "mocha": "^10.2.0"
   }
 }
