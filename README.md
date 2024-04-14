@@ -8,7 +8,7 @@
 > Supports Vue2 and Vue3
 
 ```sh
-npm install detective-vue2
+npm install detective-vue2 typescript
 ```
 ## Usage
 
