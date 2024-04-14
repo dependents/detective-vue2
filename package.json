@@ -35,14 +35,16 @@
   "engines": {
     "node": ">=18"
   },
+  "peerDependencies": {
+    "typescript": "^5.4.4"
+  },
   "dependencies": {
     "@vue/compiler-sfc": "^3.4.21",
     "detective-es6": "^5.0.0",
     "detective-sass": "^6.0.0",
     "detective-scss": "^5.0.0",
     "detective-stylus": "^5.0.0",
-    "detective-typescript": "^13.0.0",
-    "typescript": "^5.4.5"
+    "detective-typescript": "^13.0.0"
   },
   "devDependencies": {
     "c8": "^9.1.0",
