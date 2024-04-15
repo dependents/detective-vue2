@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/havunen/detective-vue2.git"
+    "url": "git+https://github.com/dependents/detective-vue2.git"
   },
   "keywords": [
     "detective",
@@ -29,9 +29,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/havunen/detective-vue2/issues"
+    "url": "https://github.com/dependents/detective-vue2/issues"
   },
-  "homepage": "https://github.com/havunen/detective-vue2",
+  "homepage": "https://github.com/dependents/detective-vue2",
   "engines": {
     "node": ">=18"
   },
