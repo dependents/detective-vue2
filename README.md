@@ -4,8 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/detective-vue2?logo=npm&logoColor=fff)](https://www.npmjs.com/package/detective-vue2)
 [![npm downloads](https://img.shields.io/npm/dm/detective-vue2)](https://www.npmjs.com/package/detective-vue2)
 
-> Get the dependencies of Vue module
-> Supports Vue2 and Vue3
+> Get the dependencies of Vue module. Supports Vue2 and Vue3
 
 ```sh
 npm install detective-vue2 typescript
