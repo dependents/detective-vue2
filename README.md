@@ -23,4 +23,4 @@ const dependencies = detective(content);
 
 ## License
 
-MIT
+[MIT](LICENSE)
