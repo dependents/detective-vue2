@@ -12,7 +12,7 @@ describe('detective-vue2', () => {
     }, /^Error: content not given$/);
   });
 
-  it('throws if the source content is not given', () => {
+  it('throws if the source content is not a string', () => {
     assert.throws(() => {
       detective(() => {});
     }, /^Error: content is not a string$/);
