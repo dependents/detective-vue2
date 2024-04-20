@@ -10,20 +10,20 @@ const detectiveSass = require('detective-sass');
 /**
  * Extracts the dependencies of the supplied Vue module
  */
-module.exports = function(fileContent, opts) {
-  if (fileContent === undefined) throw new Error('content not given');
-  if (typeof fileContent !== 'string') throw new Error('content is not a string');
+module.exports = function(content, options) {
+  if (content === undefined) throw new Error('content not given');
+  if (typeof content !== 'string') throw new Error('content is not a string');
 
-  const result = compiler.parse(fileContent, { sourceMap: false });
+  const result = compiler.parse(content, { sourceMap: false });
   const { styles, script } = result.descriptor;
 
   const dependencies = [];
 
   if (script?.content) {
     if (script.attrs?.lang === 'ts') {
-      dependencies.push(...detectiveTypeScript(script.content, opts));
+      dependencies.push(...detectiveTypeScript(script.content, options));
     } else {
-      dependencies.push(...detectiveEs6(script.content, opts));
+      dependencies.push(...detectiveEs6(script.content, options));
     }
   }
 
