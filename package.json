@@ -1,6 +1,6 @@
 {
   "name": "detective-vue2",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "author": "Havunen <sampo.kivisto@live.fi>",
   "description": "Get the dependencies of a Vue module",
   "main": "index.js",
@@ -39,7 +39,7 @@
     "typescript": "^5.4.4"
   },
   "dependencies": {
-    "@vue/compiler-sfc": "^3.4.21",
+    "@vue/compiler-sfc": "^3.4.27",
     "detective-es6": "^5.0.0",
     "detective-sass": "^6.0.0",
     "detective-scss": "^5.0.0",
