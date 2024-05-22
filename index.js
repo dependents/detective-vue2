@@ -15,15 +15,16 @@ module.exports = function(content, options) {
   if (typeof content !== 'string') throw new Error('content is not a string');
 
   const result = compiler.parse(content, { sourceMap: false });
-  const { styles, script } = result.descriptor;
+  const { styles, script, scriptSetup } = result.descriptor;
+  const usedScript = script || scriptSetup;
 
   const dependencies = [];
 
-  if (script?.content) {
-    if (script.attrs?.lang === 'ts') {
-      dependencies.push(...detectiveTypeScript(script.content, options));
+  if (usedScript?.content) {
+    if (usedScript.attrs?.lang === 'ts') {
+      dependencies.push(...detectiveTypeScript(usedScript.content, options));
     } else {
-      dependencies.push(...detectiveEs6(script.content, options));
+      dependencies.push(...detectiveEs6(usedScript.content, options));
     }
   }
 

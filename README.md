@@ -9,6 +9,7 @@
 ```sh
 npm install detective-vue2 typescript
 ```
+
 ## Usage
 
 ```js
