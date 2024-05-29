@@ -16,15 +16,16 @@ module.exports = function(content, options) {
 
   const result = compiler.parse(content, { sourceMap: false });
   const { styles, script, scriptSetup } = result.descriptor;
-  const usedScript = script || scriptSetup;
 
   const dependencies = [];
 
-  if (usedScript?.content) {
-    if (usedScript.attrs?.lang === 'ts') {
-      dependencies.push(...detectiveTypeScript(usedScript.content, options));
-    } else {
-      dependencies.push(...detectiveEs6(usedScript.content, options));
+  for (const usedScript of [script, scriptSetup]) {
+    if (usedScript?.content) {
+      if (usedScript.attrs?.lang === 'ts') {
+        dependencies.push(...detectiveTypeScript(usedScript.content, options));
+      } else {
+        dependencies.push(...detectiveEs6(usedScript.content, options));
+      }
     }
   }
 
