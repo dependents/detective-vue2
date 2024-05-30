@@ -51,4 +51,20 @@ import OtherComponent from "./OtherComponent.vue";
     assert.equal(deps[0], 'mylib');
     assert.equal(deps[1], './OtherComponent.vue');
   });
+
+  it('retrieves the dependencies of script block lang ts using both setup and normal syntax', () => {
+    const deps = detective(`<script lang="ts">
+import { foo, bar } from "mylib";
+</script>
+<script setup lang="ts">
+import OtherComponent from "./OtherComponent.vue";
+</script>
+<template>
+<OtherComponent />
+</template>
+`);
+    assert.equal(deps.length, 2);
+    assert.equal(deps[0], 'mylib');
+    assert.equal(deps[1], './OtherComponent.vue');
+  });
 });
