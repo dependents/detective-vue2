@@ -38,6 +38,13 @@ describe('detective-vue2', () => {
     assert.equal(deps[1], 'vars.scss');
   });
 
+  it('retrieves the dependencies of less and script block lang js', () => {
+    const deps = detective('<template></template> <script>import {foo, bar} from "mylib"; </script> <style lang="less">@import \'vars.scss\' </style>');
+    assert.equal(deps.length, 2);
+    assert.equal(deps[0], 'mylib');
+    assert.equal(deps[1], 'vars.scss');
+  });
+
   it('retrieves the dependencies of script block lang ts using setup syntax', () => {
     const deps = detective(`<script lang="ts" setup>
 import { foo, bar } from "mylib";

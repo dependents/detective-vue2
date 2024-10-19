@@ -6,6 +6,7 @@ const detectiveEs6 = require('detective-es6');
 const detectiveScss = require('detective-scss');
 const detectiveStylus = require('detective-stylus');
 const detectiveSass = require('detective-sass');
+const detectiveLess = require('@dependents/detective-less');
 
 function detectiveVue(content, options) {
   if (content === undefined) throw new Error('content not given');
@@ -31,19 +32,25 @@ function detectiveVue(content, options) {
   for (const style of styles) {
     switch (style.attrs.lang) {
       case 'scss': {
-        dependencies.push(...detectiveScss(style.content));
+        dependencies.push(...detectiveScss(style.content, options));
 
         break;
       }
 
       case 'stylus': {
-        dependencies.push(...detectiveStylus(style.content));
+        dependencies.push(...detectiveStylus(style.content, options));
 
         break;
       }
 
       case 'sass': {
-        dependencies.push(...detectiveSass(style.content));
+        dependencies.push(...detectiveSass(style.content, options));
+
+        break;
+      }
+
+      case 'less': {
+        dependencies.push(...detectiveLess(style.content, options));
 
         break;
       }
