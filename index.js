@@ -7,10 +7,7 @@ const detectiveScss = require('detective-scss');
 const detectiveStylus = require('detective-stylus');
 const detectiveSass = require('detective-sass');
 
-/**
- * Extracts the dependencies of the supplied Vue module
- */
-module.exports = function(content, options) {
+function detectiveVue(content, options) {
   if (content === undefined) throw new Error('content not given');
   if (typeof content !== 'string') throw new Error('content is not a string');
 
@@ -52,9 +49,14 @@ module.exports = function(content, options) {
       }
 
       default:
-        // css has no deps
+      // css has no deps
     }
   }
 
   return dependencies;
-};
+}
+
+/**
+ * Extracts the dependencies of the supplied Vue module
+ */
+module.exports = detectiveVue;
