@@ -1,6 +1,6 @@
 {
   "name": "detective-vue2",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "author": "Havunen <sampo.kivisto@live.fi>",
   "description": "Get the dependencies of a Vue module",
   "main": "index.js",
