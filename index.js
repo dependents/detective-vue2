@@ -8,6 +8,9 @@ const detectiveStylus = require('detective-stylus');
 const detectiveSass = require('detective-sass');
 const detectiveLess = require('@dependents/detective-less');
 
+/**
+ * Extracts the dependencies of the supplied Vue module
+ */
 function detectiveVue(content, options) {
   if (content === undefined) throw new Error('content not given');
   if (typeof content !== 'string') throw new Error('content is not a string');
@@ -63,7 +66,4 @@ function detectiveVue(content, options) {
   return dependencies;
 }
 
-/**
- * Extracts the dependencies of the supplied Vue module
- */
 module.exports = detectiveVue;
