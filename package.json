@@ -10,10 +10,10 @@
   "scripts": {
     "lint": "xo",
     "fix": "xo --fix",
-    "mocha": "mocha",
-    "test": "npm run lint && npm run mocha",
-    "test:ci": "c8 npm run mocha",
-    "watch": "npm run mocha -- -w"
+    "uvu": "uvu test",
+    "test": "npm run lint && npm run uvu",
+    "test:ci": "c8 npm run uvu",
+    "watch": "node --watch test/test.js"
   },
   "repository": {
     "type": "git",
@@ -49,8 +49,8 @@
   },
   "devDependencies": {
     "c8": "^10.1.3",
-    "mocha": "^11.1.0",
     "typescript": "^5.7.3",
+    "uvu": "^0.5.6",
     "xo": "^0.60.0"
   },
   "xo": {
