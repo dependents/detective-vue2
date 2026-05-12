@@ -12,14 +12,22 @@ npm install detective-vue2 typescript
 
 ## Usage
 
+### ESM
+
 ```js
-const fs = require('fs');
-const detective = require('detective-vue2');
+import fs from 'node:fs';
+import detective from 'detective-vue2';
 
 const content = fs.readFileSync('myfile.vue', 'utf8');
 
 // Pass in a file's content or an AST
 const dependencies = detective(content);
+```
+
+### CommonJS
+
+```js
+const { default: detective } = require('detective-vue2');
 ```
 
 ## License
