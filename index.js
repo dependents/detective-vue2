@@ -1,17 +1,15 @@
-'use strict';
-
-const { parse } = require('@vue/compiler-sfc');
-const detectiveTypeScript = require('detective-typescript');
-const detectiveEs6 = require('detective-es6');
-const detectiveScss = require('detective-scss');
-const detectiveStylus = require('detective-stylus');
-const detectiveSass = require('detective-sass');
-const detectiveLess = require('@dependents/detective-less');
+import { parse } from '@vue/compiler-sfc';
+import detectiveTypeScript from 'detective-typescript';
+import detectiveEs6 from 'detective-es6';
+import detectiveScss from 'detective-scss';
+import detectiveStylus from 'detective-stylus';
+import detectiveSass from 'detective-sass';
+import detectiveLess from '@dependents/detective-less';
 
 /**
  * Extracts the dependencies of the supplied Vue module
  */
-function detective(content, options) {
+export default function detective(content, options) {
   if (content === undefined) throw new Error('content not given');
   if (typeof content !== 'string') throw new Error('content is not a string');
 
@@ -34,34 +32,28 @@ function detective(content, options) {
     switch (style.attrs.lang) {
       case 'scss': {
         dependencies.push(...detectiveScss(style.content, options));
-
         break;
       }
 
       case 'stylus': {
         dependencies.push(...detectiveStylus(style.content, options));
-
         break;
       }
 
       case 'sass': {
         dependencies.push(...detectiveSass(style.content, options));
-
         break;
       }
 
       case 'less': {
         dependencies.push(...detectiveLess(style.content, options));
-
         break;
       }
 
       default:
-      // css has no deps
+        // css has no deps
     }
   }
 
   return dependencies;
 }
-
-module.exports = detective;

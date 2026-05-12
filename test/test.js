@@ -1,8 +1,6 @@
-'use strict';
-
-const assert = require('node:assert').strict;
-const { test } = require('uvu');
-const detective = require('../index.js');
+import { strict as assert } from 'node:assert';
+import { test } from 'uvu';
+import detective from '../index.js';
 
 test('throws if the source content is not given', () => {
   assert.throws(() => {
