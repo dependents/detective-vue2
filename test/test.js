@@ -16,34 +16,34 @@ test('throws if the source content is not a string', () => {
   }, /^Error: content is not a string$/);
 });
 
-test('retrieves the dependencies of script block lang ts', () => {
+test('retrieves the dependencies of script block with lang ts', () => {
   const deps = detective('<template></template> <script lang="ts">import {foo, bar} from "mylib"; </script>');
   assert.equal(deps.length, 1);
   assert.equal(deps[0], 'mylib');
 });
 
-test('retrieves the dependencies of scss and script block lang ts', () => {
+test('retrieves the dependencies of scss and script block with lang ts', () => {
   const deps = detective('<template></template> <script lang="ts">import {foo, bar} from "mylib"; </script> <style lang="scss">@import \'vars.scss\' </style>');
   assert.equal(deps.length, 2);
   assert.equal(deps[0], 'mylib');
   assert.equal(deps[1], 'vars.scss');
 });
 
-test('retrieves the dependencies of scss and script block lang js', () => {
+test('retrieves the dependencies of scss and script block with lang js', () => {
   const deps = detective('<template></template> <script>import {foo, bar} from "mylib"; </script> <style lang="sass">@import \'vars.scss\' </style>');
   assert.equal(deps.length, 2);
   assert.equal(deps[0], 'mylib');
   assert.equal(deps[1], 'vars.scss');
 });
 
-test('retrieves the dependencies of less and script block lang js', () => {
+test('retrieves the dependencies of less and script block with lang js', () => {
   const deps = detective('<template></template> <script>import {foo, bar} from "mylib"; </script> <style lang="less">@import \'vars.scss\' </style>');
   assert.equal(deps.length, 2);
   assert.equal(deps[0], 'mylib');
   assert.equal(deps[1], 'vars.scss');
 });
 
-test('retrieves the dependencies of script block lang ts using setup syntax', () => {
+test('retrieves the dependencies of script block with lang ts using setup syntax', () => {
   const deps = detective(`<script lang="ts" setup>
 import { foo, bar } from "mylib";
 import OtherComponent from "./OtherComponent.vue";
@@ -57,7 +57,7 @@ import OtherComponent from "./OtherComponent.vue";
   assert.equal(deps[1], './OtherComponent.vue');
 });
 
-test('retrieves the dependencies of script block lang ts using both setup and normal syntax', () => {
+test('retrieves the dependencies of script block with lang ts using both setup and normal syntax', () => {
   const deps = detective(`<script lang="ts">
 import { foo, bar } from "mylib";
 </script>
