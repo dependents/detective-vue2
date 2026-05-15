@@ -1,6 +1,6 @@
 'use strict';
 
-const compiler = require('@vue/compiler-sfc');
+const { parse } = require('@vue/compiler-sfc');
 const detectiveTypeScript = require('detective-typescript');
 const detectiveEs6 = require('detective-es6');
 const detectiveScss = require('detective-scss');
@@ -11,22 +11,20 @@ const detectiveLess = require('@dependents/detective-less');
 /**
  * Extracts the dependencies of the supplied Vue module
  */
-function detectiveVue(content, options) {
+function detective(content, options) {
   if (content === undefined) throw new Error('content not given');
   if (typeof content !== 'string') throw new Error('content is not a string');
 
-  const result = compiler.parse(content, { sourceMap: false });
-  const { styles, script, scriptSetup } = result.descriptor;
-
+  const { styles, script, scriptSetup } = parse(content, { sourceMap: false }).descriptor;
   const dependencies = [];
 
   for (const usedScript of [script, scriptSetup]) {
-    if (usedScript?.content) {
-      if (usedScript.attrs?.lang === 'ts') {
-        dependencies.push(...detectiveTypeScript(usedScript.content, options));
-      } else {
-        dependencies.push(...detectiveEs6(usedScript.content, options));
-      }
+    if (!usedScript || !usedScript.content) continue;
+
+    if (usedScript.attrs && usedScript.attrs.lang === 'ts') {
+      dependencies.push(...detectiveTypeScript(usedScript.content, options));
+    } else {
+      dependencies.push(...detectiveEs6(usedScript.content, options));
     }
   }
 
@@ -66,4 +64,4 @@ function detectiveVue(content, options) {
   return dependencies;
 }
 
-module.exports = detectiveVue;
+module.exports = detective;
