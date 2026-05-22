@@ -46,7 +46,7 @@ export default function detective(content, options) {
       }
 
       case 'stylus': {
-        dependencies.push(...detectiveStylus(style.content, options));
+        dependencies.push(...detectiveStylus(style.content));
         break;
       }
 
