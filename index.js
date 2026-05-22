@@ -30,13 +30,8 @@ export default function detective(content, options) {
 
   for (const style of styles) {
     switch (style.attrs.lang) {
-      case 'scss': {
-        dependencies.push(...detectiveScss(style.content, options));
-        break;
-      }
-
-      case 'stylus': {
-        dependencies.push(...detectiveStylus(style.content, options));
+      case 'less': {
+        dependencies.push(...detectiveLess(style.content, options));
         break;
       }
 
@@ -45,8 +40,13 @@ export default function detective(content, options) {
         break;
       }
 
-      case 'less': {
-        dependencies.push(...detectiveLess(style.content, options));
+      case 'scss': {
+        dependencies.push(...detectiveScss(style.content, options));
+        break;
+      }
+
+      case 'stylus': {
+        dependencies.push(...detectiveStylus(style.content, options));
         break;
       }
 
