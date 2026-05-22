@@ -117,4 +117,35 @@ import OtherComponent from "./OtherComponent.vue";
   assert.equal(deps[1], './OtherComponent.vue');
 });
 
+test('retrieves the dependencies of script setup block without lang', () => {
+  const fixture = `<script setup>
+import { foo, bar } from "mylib";
+import OtherComponent from "./OtherComponent.vue";
+</script>
+<template>
+  <OtherComponent />
+</template>
+`;
+  const deps = detective(fixture);
+  assert.equal(deps.length, 2);
+  assert.equal(deps[0], 'mylib');
+  assert.equal(deps[1], './OtherComponent.vue');
+});
+
+test('ignores plain CSS style blocks', () => {
+  const fixture = `<template></template>
+<script>
+import { foo, bar } from "mylib";
+</script>
+<style>
+.foo {
+  color: red;
+}
+</style>
+`;
+  const deps = detective(fixture);
+  assert.equal(deps.length, 1);
+  assert.equal(deps[0], 'mylib');
+});
+
 test.run();
