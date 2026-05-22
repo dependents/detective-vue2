@@ -26,8 +26,6 @@ export default function detective(content, options) {
     }
   }
 
-  if (!styles) return dependencies;
-
   for (const style of styles) {
     switch (style.attrs.lang) {
       case 'less': {
