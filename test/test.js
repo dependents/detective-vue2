@@ -70,6 +70,21 @@ import { foo, bar } from "mylib";
   assert.equal(deps[1], 'vars.less');
 });
 
+test('retrieves the dependencies of stylus and script block with lang js', () => {
+  const fixture = `<template></template>
+<script>
+import { foo, bar } from "mylib";
+</script>
+<style lang="stylus">
+@import 'vars.styl';
+</style>
+`;
+  const deps = detective(fixture);
+  assert.equal(deps.length, 2);
+  assert.equal(deps[0], 'mylib');
+  assert.equal(deps[1], 'vars.styl');
+});
+
 test('retrieves the dependencies of script block with lang ts using setup syntax', () => {
   const fixture = `<script lang="ts" setup>
 import { foo, bar } from "mylib";
