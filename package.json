@@ -16,7 +16,7 @@
     "vitest": "vitest run",
     "test": "npm run lint && vitest run",
     "test:ci": "vitest run --coverage",
-    "watch": "node --watch test/index.test.js"
+    "watch": "vitest"
   },
   "repository": {
     "type": "git",
