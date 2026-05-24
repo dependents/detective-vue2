@@ -7,7 +7,16 @@ import detectiveSass from 'detective-sass';
 import detectiveLess from '@dependents/detective-less';
 
 /**
- * Extracts the dependencies of the supplied Vue module
+ * Extracts the dependencies of the supplied Vue module.
+ *
+ * @param {string} content - The Vue SFC source code
+ * @param {object} [options]
+ * @param {boolean} [options.skipTypeImports] - Skip type-only imports (script blocks)
+ * @param {boolean} [options.skipAsyncImports] - Skip dynamic `import()` expressions (script blocks)
+ * @param {boolean} [options.mixedImports] - Include CJS `require()` calls (TS script blocks only)
+ * @param {boolean} [options.jsx] - Enable JSX/TSX parsing (TS script blocks only)
+ * @param {boolean} [options.url] - Detect `url()` references in style blocks (less/sass/scss only)
+ * @returns {string[]} Resolved dependency specifiers
  */
 export default function detective(content, options) {
   if (content === undefined) throw new Error('content not given');
