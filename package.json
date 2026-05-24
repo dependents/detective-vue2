@@ -13,7 +13,7 @@
   "scripts": {
     "lint": "xo",
     "fix": "xo --fix",
-    "vitest": "vitest run",
+    "vitest": "vitest",
     "test": "npm run lint && vitest run",
     "test:ci": "vitest run --coverage",
     "watch": "vitest"
