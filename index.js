@@ -9,7 +9,7 @@ import detectiveLess from '@dependents/detective-less';
 /**
  * Extracts the dependencies of the supplied Vue module
  */
-export default function detective(content, options) {
+export default function detective(content, options = {}) {
   if (content === undefined) throw new Error('content not given');
   if (typeof content !== 'string') throw new Error('content is not a string');
 
